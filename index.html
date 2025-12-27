@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting…</title>
+  <script>
+    fetch("https://raw.githubusercontent.com/ujjwal/mysite/main/link.txt")
+      .then(r => r.text())
+      .then(url => {
+        url = url.trim();
+        if(url.startsWith("http")){
+          location.replace(url);
+        } else {
+          document.body.innerHTML = "Server Temporarily Closed";
+        }
+      })
+      .catch(()=>{
+        document.body.innerHTML = "Server Temporarily Closed";
+      });
+  </script>
+</head>
+<body>
+  Connecting to server…
+</body>
+</html>
